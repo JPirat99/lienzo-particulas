@@ -258,6 +258,8 @@ $('hide').addEventListener('click', togglePanel);
 
 window.addEventListener('keydown', e => {
   if (e.target.tagName === 'INPUT') return;
+  // Deja pasar los atajos del navegador (Ctrl+C, Ctrl+S, Ctrl+F…)
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
   const k = e.key.toLowerCase();
   if (k >= '1' && k <= '9') setSymmetry(+k);
   else if (k === 'm') toggleMirror();
